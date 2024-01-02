@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+  background-color: aqua;
+}
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.header{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: red
+}
+#palindrome-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.palindrome-definition{
+    width:500px;
+    background-color: green;
+    border-radius: 10px;
+}
+.text-definition{
+    text-align: center;
+    font-size: 1.5rem;
+    text-indent: 8%;    
+}
