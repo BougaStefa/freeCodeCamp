@@ -59,7 +59,7 @@ const showAnimation = () => {
   });
 
   setTimeout(() => {
-obj.result.textContent=decimalToBinary(5)
+  result.textContent=decimalToBinary(5)
   }, 20000);
 };
 
