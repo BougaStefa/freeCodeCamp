@@ -1,0 +1,84 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#main-div {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5% 40% 30% 40%;
+  background-color: whitesmoke;
+}
+
+h1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 45%;
+  margin-bottom: 2%;
+}
+#check-btn, #clear-btn {
+  border-radius: 15px;
+  border: 1px solid #888888;
+  font-weight: bold;
+  padding:10%;
+  width:55%;
+  text-decoration: none;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border-width: 2px;
+  font-size:1vw;
+}
+#user-input {
+  border-radius: 10px;
+  border: 1px solid #888888;
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+#description {
+  text-align: center;
+  margin-bottom: 10%;
+  margin-top:2%;
+}
+#user-input {
+  border-radius: 10px;
+  border: 1px solid #888888;
+  width: 85%;
+  height: 20%;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+#description{
+  text-align: center;
+  font-weight: bold;
+}
+body {
+  background-color: #add8e6;
+}
+@media (max-width: 600px) {
+  #check-btn, #clear-btn {
+    width: 30%;
+    font-size: 10px;
+  }
+}
+
