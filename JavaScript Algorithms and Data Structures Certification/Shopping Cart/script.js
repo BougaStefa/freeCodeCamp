@@ -173,7 +173,7 @@ class ShoppingCart {
     return this.total;
   }
 }
-
+//test
 const cart = new ShoppingCart();
 const addToCartBtns = document.getElementsByClassName("add-to-cart-btn");
 
