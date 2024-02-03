@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(81, 81, 116);
+        color: rgb(255, 255, 255);
+        line-height: 1.6;
+        font-size: 16px;
+        padding-top: 5rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 70%;
+    padding-bottom: 5%;
+}
+
+#cash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 70%;
+}
+#purchase-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:47%;
+    margin-right:47%;
+    margin-top:1%;
+    max-width: 80%;
+}
+#change-due{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:47%;
+    margin-right:47%;
+    margin-top:1%;
+    max-width: 80%;
+}
