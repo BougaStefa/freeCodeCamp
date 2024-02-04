@@ -1,14 +1,14 @@
 let price = 19.5;
 let cid = [
-  ["PENNY", 1.01],
-  ["NICKEL", 2.05],
-  ["DIME", 3.1],
-  ["QUARTER", 4.25],
-  ["ONE", 90],
-  ["FIVE", 55],
-  ["TEN", 20],
-  ["TWENTY", 60],
-  ["ONE HUNDRED", 100],
+  ["PENNY", 0.01],
+  ["NICKEL", 0],
+  ["DIME", 0],
+  ["QUARTER", 0],
+  ["ONE", 0],
+  ["FIVE", 0],
+  ["TEN", 0],
+  ["TWENTY", 0],
+  ["ONE HUNDRED", 0],
 ];
 const cash = document.getElementById("cash");
 const purchaseBtn = document.getElementById("purchase-btn");
@@ -36,40 +36,51 @@ const getCoinValue = (coinName) => {
       return 100;
   }
 };
-const handleChange = (price, cash, cid) => {
-  let changeValue = cash - price;
+
+const getTotalCid = () => {
   let totalCid = 0;
   for (let i = 0; i < cid.length; i++) {
     totalCid += cid[i][1];
   }
-  if (totalCid < changeValue) {
-    changeDue.innerHTML = "STATUS: INSUFFICIENT_FUNDS";
-    return;
-  }
-  if (totalCid === changeValue) {
-    changeDue.innerHTML = "STATUS: CLOSED";
-    return;
+  return totalCid;
+};
+
+const handleChange = () => {
+  let requiredChange = parseFloat(cash.value) - price;
+  let outputMsg = "";
+  let totalCid = getTotalCid();
+  if (totalCid < requiredChange) {
+    changeDue.innerHTML = `STATUS: INSUFFICIENT_FUNDS`;
   }
   for (let i = cid.length - 1; i >= 0; i--) {
     let coinValue = getCoinValue(cid[i][0]);
+    let coinTotalValue = cid[i][1];
     let coinName = cid[i][0];
-    let coinTotal = cid[i][1];
-    let coinAmount = Math.round(coinTotal / coinValue);
-    if (changeValue >= coinValue) {
-      let coinsToReturn = Math.floor(changeValue / coinValue);
-      if (coinsToReturn > coinAmount) {
-        coinsToReturn = coinAmount;
+    let numberOfCoins = Math.floor(coinTotalValue / coinValue);
+    if (requiredChange >= coinValue) {
+      let coinsToReturn = Math.floor(requiredChange / coinValue);
+      if (coinsToReturn > numberOfCoins) {
+        coinsToReturn = numberOfCoins;
       }
-      changeValue -= coinsToReturn * coinValue;
-      changeValue = changeValue.toFixed(2);
-      totalCid -= coinsToReturn * coinValue;
-      changeDue.innerHTML += `${coinName}: $${coinsToReturn * coinValue} <br>`;
+      requiredChange -= coinsToReturn * coinValue;
+      requiredChange = Math.round(requiredChange * 100) / 100;
+      outputMsg += coinName + ": $" + coinsToReturn * coinValue + " ";
+      cid[i][1] -= coinsToReturn * coinValue;
+    }
+    totalCid = getTotalCid();
+    if (totalCid < requiredChange) {
+      changeDue.innerHTML = `STATUS: INSUFFICIENT_FUNDS`;
+      return;
     }
   }
-  if (totalCid === 0) {
-    changeDue.innerHTML = "STATUS: CLOSED" + "<br>" + changeDue.innerHTML;
+  if (requiredChange !== 0) {
+    changeDue.innerHTML = `STATUS: INSUFFICIENT_FUNDS`;
+    return;
+  }
+  if (getTotalCid() === 0) {
+    changeDue.innerHTML = `STATUS: CLOSED ` + outputMsg;
   } else {
-    changeDue.innerHTML = "STATUS: OPEN" + "<br>" + changeDue.innerHTML;
+    changeDue.innerHTML = `STATUS: OPEN ` + outputMsg;
   }
 };
 
@@ -81,6 +92,6 @@ purchaseBtn.addEventListener("click", () => {
     changeDue.innerHTML = `No change due - customer paid with exact cash`;
     return;
   } else {
-    handleChange(price, parseFloat(cash.value), cid);
+    handleChange();
   }
 });
