@@ -16,11 +16,11 @@ main {
 }
 h1 {
   color: #f5f6f7;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   text-align: center;
 }
 .container {
-  width: 350px;
+  width: 325px;
   margin: 25px 0;
   background-color: #f5f6f7;
   border: #f5f6f7;
@@ -45,6 +45,7 @@ label {
 #search-input {
   height: 40px;
   width: 200px;
+  padding-left: 10px;
 }
 #search-button {
   padding: 14px 0;
@@ -59,6 +60,61 @@ label {
   margin: 10px 0;
   padding: 5px;
   flex-direction: column;
-  width: 100%;
+  width: 92%;
   min-height: 325px;
+}
+.top-half,
+.statistics{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  min-height: 325px;
+}
+.top-half{
+  margin-bottom: 10px;
+  padding:10px;
+  background-color: #f0f1f7;
+}
+.name-and-id{
+  height:28px;
+  font-size:1.1rem;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+.weight-height{
+  height:22px;
+  font-size:0.85rem;
+}
+.pokemon-image{
+  flex-grow:2;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#types{
+  min-height:30px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  gap:5px;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width:100%;
+  font-size:1rem;
+  color:#f5f6f7;
+  background-color:maroon;
+}
+th:nth-child(even),
+td:nth-child(even){
+  border-left:5px solid #f5f6f7;
+}
+tr{
+  border-bottom:5px solid #f5f6f7;
+}
+td,
+th{
+  text-align: center;
+  padding:8px;
 }

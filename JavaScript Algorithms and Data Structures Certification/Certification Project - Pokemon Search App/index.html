@@ -10,22 +10,22 @@
     <main>
       <h1>Pokémon Search App</h1>
       <div class="container">
-        <form action="search" id="search-form">
-          <label for="input">Search for Pokémon Name or ID:</label>
-          <input id="search-input" name="input" type="text" />
+        <form role="search" id="search-form">
+          <label for="search-input">Search for Pokémon Name or ID:</label>
+          <input id="search-input" name="pokemon" type="text" required />
           <button id="search-button">Search</button>
         </form>
         <div class="output">
           <div class="top-half">
             <div class="name-and-id">
-              <span id="pokemon-name">Pikachu</span>
-              <span id="pokemon-id">#66</span>
+              <span id="pokemon-name"></span>
+              <span id="pokemon-id"></span>
             </div>
             <div class="weight-height">
-              <span id="weight">fatty</span>
-              <span id="height">shorty</span>
+              <span id="weight"></span>
+              <span id="height"></span>
             </div>
-            <div class="pokemon-image"></div>
+            <div class="pokemon-image" id="pokemon-image"></div>
             <div id="types"></div>
           </div>
           <div class="statistics">
